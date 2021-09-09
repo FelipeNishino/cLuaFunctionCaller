@@ -30,8 +30,15 @@ int main(int argc, const char* argv[]){
 			printf("arg %d: %s ", i+1, argv[i+3]);
 		}
 		printf("\n");
-		printf("------------------------------------\n");
 	}
+	printf("------------------------------------\n");
+
+	if (argc < 3 + atoi(argv[2])) {
+		printf("Inconsistencia entre a quantidade de argumentos declarada e os argumentos passados.\n");
+		printf("------------------------------------\n");
+		return 1;
+	}
+	
 
 	// Initializes and opens de lua file
 	lua_State* L = luaL_newstate();
