@@ -23,12 +23,14 @@ int main(int argc, const char* argv[]){
 
 	// Prints received values
 	if (VERBOSE) {
+		printf("------------------------------------\n");
 		printf("funcName: %s, argCount: %d, ", argv[1], atoi(argv[2]));
 		int i = 0;
 		for (i = 0; i < argc - 3; ++i) {
-			printf("arg %d: %s ", i, argv[i + 3]);
+			printf("arg %d: %s ", i+1, argv[i+3]);
 		}
 		printf("\n");
+		printf("------------------------------------\n");
 	}
 
 	// Initializes and opens de lua file
@@ -61,15 +63,15 @@ void f(lua_State* L, const char* functionName, int argCount, const char** args) 
 	// Get/treat results
 	if (lua_isnumber(L, -1)){
 		double z = lua_tonumber(L, -1);
-		lua_pop(L, 1);  /* pop returned value */
-		printf("Resultado: %f\n", z);
+		printf("result: %f\n", z);
 	}
 	else {
         const char* returnedVal = lua_tostring(L, -1);
-        lua_pop(L, 1);  /* pop returned value */
 
-        printf("Resultado: %s\n", returnedVal);
+        printf("result: %s\n", returnedVal);
     }
+    printf("------------------------------------\n");
+    lua_pop(L, 1);  /* pop returned value */
 }
 
 // https://www.lua.org/pil/24.1.html#first-ex
