@@ -18,4 +18,5 @@ make
 ## Funções disponíveis
 - factorial(x)
 - power(x, y)
+- nothing(x)
 - bhaskara(a, b, c)

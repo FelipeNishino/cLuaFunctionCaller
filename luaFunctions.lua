@@ -10,7 +10,7 @@ function power(x, y)
     return x^y
 end
 
-function nada(x)
+function nothing(x)
     return x
 end
 
